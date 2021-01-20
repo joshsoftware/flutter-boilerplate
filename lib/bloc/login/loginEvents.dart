@@ -1,0 +1,3 @@
+enum LoginEvents {
+  login,
+}
