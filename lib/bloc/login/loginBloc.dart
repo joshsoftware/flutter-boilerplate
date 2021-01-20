@@ -4,7 +4,6 @@ import 'dart:io';
 
 import 'package:bloc_pattern_flutter_app/api/exceptions.dart';
 import 'package:bloc_pattern_flutter_app/api/login/loginService.dart';
-import 'package:bloc_pattern_flutter_app/bloc/login/loginApi.dart';
 import 'package:bloc_pattern_flutter_app/models/user.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -24,9 +23,6 @@ class LoginBloc extends Bloc<LoginEvents, LoginState> {
       case LoginEvents.login:
         yield LoginInProcess();
         try {
-          if(event is LoginApi){
-
-          }
           user = await loginRepo.doLogin();
           yield LoginDone(user: user);
         } on SocketException {
