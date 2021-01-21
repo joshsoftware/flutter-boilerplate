@@ -1,24 +1,10 @@
 import 'dart:convert';
-import 'package:bloc_pattern_flutter_app/api/album/albumService.dart';
-import 'package:bloc_pattern_flutter_app/bloc/album/bloc.dart';
-import 'package:bloc_pattern_flutter_app/bloc/login/WeatherBloc.dart';
-import 'package:bloc_pattern_flutter_app/bloc/login/loginBloc.dart';
-import 'package:bloc_pattern_flutter_app/bloc/login/loginEvents.dart';
-import 'package:bloc_pattern_flutter_app/bloc/login/loginStates.dart';
+import 'package:bloc_pattern_flutter_app/bloc/login/LoginBloc.dart';
 import 'package:bloc_pattern_flutter_app/models/user.dart';
 import 'package:bloc_pattern_flutter_app/screens/home_screen.dart';
-import 'package:bloc_pattern_flutter_app/utils/Constant.dart';
-import 'package:bloc_pattern_flutter_app/utils/SharedPreferencesHelper.dart';
 import 'package:bloc_pattern_flutter_app/utils/page_transition.dart';
-import 'package:bloc_pattern_flutter_app/widgets/error.dart';
-import 'package:bloc_pattern_flutter_app/widgets/roundedButton.dart';
-import 'package:bloc_pattern_flutter_app/widgets/textField.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_spinkit/flutter_spinkit.dart';
-
-import 'albums_screen.dart';
 
 class LoginPage extends StatefulWidget {
   LoginPage({
@@ -30,8 +16,6 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
-  double height, width;
-  String emailMob, password;
 
   final _scaffoldKey = GlobalKey<ScaffoldState>();
   final _mobileNoTextFieldController = TextEditingController();
@@ -127,12 +111,12 @@ class _LoginPageState extends State<LoginPage> {
               RaisedButton(onPressed: () {
                 Text("");
                 if (submitLoginFormData(context))
-                  weatherBloc.fetchLondonWeather(
+                  loginBloc.userLogin(
                       _mobileNoTextFieldController.text,
                       _passwordTextFieldController.text);
               }),
               StreamBuilder(
-                  stream: weatherBloc.weather,
+                  stream: loginBloc.loginCall,
                   builder: (context, AsyncSnapshot<User> snapshot) {
                     if (snapshot.hasData) {
                       if (snapshot.data.message != null &&
@@ -145,7 +129,7 @@ class _LoginPageState extends State<LoginPage> {
                             PageTransition(
                                 type: PageTransitionType.fade,
                                 curve: Curves.bounceInOut,
-                                child: AlbumsScreen()));
+                                child: HomeScreen()));
                         debugPrint("User details:  " + snapshot.data.name);
                       }
                     } else if (snapshot.hasError) {

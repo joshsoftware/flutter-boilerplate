@@ -1,24 +1,18 @@
 import 'dart:convert';
-
 import 'package:bloc_pattern_flutter_app/models/user.dart';
 import 'package:bloc_pattern_flutter_app/utils/ApiConstant.dart';
+import 'package:http/http.dart' show Client, Response;
 import 'package:http/http.dart' as http;
-import 'package:http/http.dart';
 
-abstract class LoginRepo {
-  Future doLogin();
-}
+class ApiProvider {
+  Client client = Client();
+  final _baseUrl = ApiConstant.baseGetURL;
 
-class LoginServices implements LoginRepo {
-  LoginServices();
-
-
-  @override
-  Future doLogin() async {
+  Future<User> doUserLogin(String userName, String mobNo) async {
     Map map = {
       'user': {
-        'login_id': "9999999998",
-        'password': "josh123#",
+        'login_id': userName,
+        'password': mobNo,
         'device_token': "GlobalConstant().firebaseToken",
       },
       'device': 'mobile'
@@ -26,14 +20,19 @@ class LoginServices implements LoginRepo {
     print(map);
     var jsonBody = JsonEncoder().convert(map);
 
-    Uri uri = Uri.https(ApiConstant.baseGetURL, ApiConstant.doLogin);
+    Uri uri = Uri.https(_baseUrl, ApiConstant.doLogin);
     Response response = await http.post(uri, body: jsonBody, headers: {
       'Accept': 'application/vnd.bidzwheelz; version=1',
       'Content-Type': 'application/json',
     });
     var jsonResponse = jsonDecode(response.body);
-    User user = User.fromJson(jsonResponse['data']);
-
-    return user;
+    User user;
+    if (response.statusCode == 200) {
+      return User.fromJson(jsonResponse['data']);
+    } else if (response.statusCode == 500) {
+      return User.fromJson(jsonResponse);
+    } else {
+      return User.fromJson(jsonResponse);
+    }
   }
 }
