@@ -33,6 +33,7 @@ dependencies:
   http: ^0.12.2
   shared_preferences: ^0.5.12+2
   flutter_spinkit: ^4.1.2+1
+  rxdart: ^0.22.0
 
 dev_dependencies:
   flutter_test:
