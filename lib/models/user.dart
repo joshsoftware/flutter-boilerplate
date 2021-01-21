@@ -6,10 +6,11 @@ class User {
   String name;
   int state_id;
   int city_id;
+  String message;
 
 //  List<Child> users = new List();
 
-  User({this.id, this.name, this.role, this.status, this.auth_token, this.state_id, this.city_id}); //, this.users});
+  User({this.id, this.name, this.role, this.status, this.auth_token, this.state_id, this.city_id, this.message}); //, this.users});
 
   factory User.fromJson(Map<String, dynamic> parsedJson) {
 //    var users = parsedJson["users"];
@@ -19,6 +20,7 @@ class User {
       role: parsedJson['role']  != null ? parsedJson['role'] : "",
       status: parsedJson['status']  != null ? parsedJson['status'] : "",
       auth_token: parsedJson['auth_token']  != null ? parsedJson['auth_token'] : "",
+      message: parsedJson['message']  != null ? parsedJson['message'] : "",
       state_id: parsedJson['state_id']  != null ? parsedJson['state_id'] : 0,
       city_id: parsedJson['city_id']  != null ? parsedJson['city_id'] : 0,
     );
@@ -32,6 +34,7 @@ class User {
     'status': status,
     'auth_token': auth_token,
     'state_id': state_id,
-    'city_id': city_id
+    'city_id': city_id,
+    'message': message
   };
 }

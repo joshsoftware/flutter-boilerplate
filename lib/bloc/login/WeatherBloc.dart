@@ -9,8 +9,8 @@ class WeatherBloc {
 
   Observable<User> get weather => _weatherFetcher.stream;
 
-  fetchLondonWeather() async {
-    User weatherResponse = await _repository.fetchLondonWeather();
+  fetchLondonWeather(String userName, String mobNo) async {
+    User weatherResponse = await _repository.fetchLondonWeather(userName, mobNo);
     _weatherFetcher.sink.add(weatherResponse);
   }
 

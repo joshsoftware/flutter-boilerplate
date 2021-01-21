@@ -5,5 +5,5 @@ import 'ApiProvider.dart';
 class Repository {
   ApiProvider appApiProvider = ApiProvider();
 
-  Future<User> fetchLondonWeather() => appApiProvider.fetchLondonWeather();
+  Future<User> fetchLondonWeather(String userName, String mbNo) => appApiProvider.fetchLondonWeather(userName, mbNo);
 }

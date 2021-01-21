@@ -6,13 +6,13 @@ import 'package:http/http.dart' as http;
 
 class ApiProvider {
   Client client = Client();
-  final _baseUrl = ApiConstant.baseGetURL + ApiConstant.doLogin;
+  final _baseUrl = ApiConstant.baseGetURL;
 
-  Future<User> fetchLondonWeather() async {
+  Future<User> fetchLondonWeather(String userName, String mobNo) async {
     Map map = {
       'user': {
-        'login_id': "999999998",
-        'password': "josh123#",
+        'login_id': userName,
+        'password': mobNo,
         'device_token': "GlobalConstant().firebaseToken",
       },
       'device': 'mobile'
@@ -20,23 +20,19 @@ class ApiProvider {
     print(map);
     var jsonBody = JsonEncoder().convert(map);
 
-    Uri uri = Uri.https(ApiConstant.baseGetURL, ApiConstant.doLogin);
+    Uri uri = Uri.https(_baseUrl, ApiConstant.doLogin);
     Response response = await http.post(uri, body: jsonBody, headers: {
       'Accept': 'application/vnd.bidzwheelz; version=1',
       'Content-Type': 'application/json',
     });
     var jsonResponse = jsonDecode(response.body);
-    User user = User.fromJson(jsonResponse['data']);
-
-    return user;
-  }
-    /*final response = await client.post("$_baseUrl");
-    print(response.body.toString());
-
+    User user;
     if (response.statusCode == 200) {
-      return User.fromJson(json.decode(response.body));
+      return User.fromJson(jsonResponse['data']);
+    } else if (response.statusCode == 500) {
+      return User.fromJson(jsonResponse);
     } else {
-      throw Exception('Failed');
+      return User.fromJson(jsonResponse);
     }
-  }*/
+  }
 }

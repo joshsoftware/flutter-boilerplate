@@ -20,12 +20,11 @@ class _AlbumsScreenState extends State<AlbumsScreen> {
   @override
   void initState() {
     super.initState();
-    _loadAlbums();
+      _loadAlbums();
   }
 
   _loadAlbums() async {
     context.bloc<AlbumsBloc>().add(AlbumEvents.fetchAlbums);
-    //context.bloc<TestBloc>();
   }
 
   @override
