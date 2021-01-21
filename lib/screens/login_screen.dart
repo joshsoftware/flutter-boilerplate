@@ -124,13 +124,14 @@ class _LoginPageState extends State<LoginPage> {
                         debugPrint("Login error:  " + snapshot.data.message);
                         return Text(snapshot.data.message);
                       } else {
+                        debugPrint("User details:  " + snapshot.data.name);
+
                         Navigator.pushReplacement(
                             context,
                             PageTransition(
                                 type: PageTransitionType.fade,
                                 curve: Curves.bounceInOut,
                                 child: HomeScreen()));
-                        debugPrint("User details:  " + snapshot.data.name);
                       }
                     } else if (snapshot.hasError) {
                       return Text(snapshot.error.toString());
