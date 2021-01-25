@@ -1,10 +1,7 @@
+import 'package:bloc_pattern_flutter_app/api/album/album_repository.dart';
 import 'package:bloc_pattern_flutter_app/models/albums_list.dart';
-import 'package:http/http.dart' as http;
 import 'package:http/http.dart';
-
-abstract class AlbumsRepo {
-  Future<List<Album>> getAlbumList();
-}
+import 'package:http/http.dart' as http;
 
 class AlbumServices implements AlbumsRepo {
   //

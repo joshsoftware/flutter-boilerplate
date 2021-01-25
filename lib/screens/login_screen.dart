@@ -1,10 +1,14 @@
 import 'dart:convert';
+import 'package:bloc_pattern_flutter_app/api/album/album_api_provider.dart';
+import 'package:bloc_pattern_flutter_app/bloc/album/bloc.dart';
 import 'package:bloc_pattern_flutter_app/bloc/login/LoginBloc.dart';
 import 'package:bloc_pattern_flutter_app/models/user.dart';
+import 'package:bloc_pattern_flutter_app/screens/albums_screen.dart';
 import 'package:bloc_pattern_flutter_app/screens/home_screen.dart';
 import 'package:bloc_pattern_flutter_app/utils/page_transition.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class LoginPage extends StatefulWidget {
   LoginPage({
@@ -16,7 +20,6 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
-
   final _scaffoldKey = GlobalKey<ScaffoldState>();
   final _mobileNoTextFieldController = TextEditingController();
   final _passwordTextFieldController = TextEditingController();
@@ -111,8 +114,7 @@ class _LoginPageState extends State<LoginPage> {
               RaisedButton(onPressed: () {
                 Text("");
                 if (submitLoginFormData(context))
-                  loginBloc.userLogin(
-                      _mobileNoTextFieldController.text,
+                  loginBloc.userLogin(_mobileNoTextFieldController.text,
                       _passwordTextFieldController.text);
               }),
               StreamBuilder(
@@ -131,7 +133,11 @@ class _LoginPageState extends State<LoginPage> {
                             PageTransition(
                                 type: PageTransitionType.fade,
                                 curve: Curves.bounceInOut,
-                                child: HomeScreen()));
+                                child: BlocProvider(
+                                  create: (context) =>
+                                      AlbumsBloc(albumsRepo: AlbumServices()),
+                                  child: AlbumsScreen(),
+                                )));
                       }
                     } else if (snapshot.hasError) {
                       return Text(snapshot.error.toString());
