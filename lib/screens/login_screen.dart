@@ -143,16 +143,19 @@ class _LoginPageState extends State<LoginPage> {
                       } else {
                         debugPrint("User details:  " + snapshot.data.name);
 
-                        Navigator.pushReplacement(
-                            context,
-                            PageTransition(
-                                type: PageTransitionType.fade,
-                                curve: Curves.bounceInOut,
-                                child: BlocProvider(
-                                  create: (context) =>
-                                      AlbumsBloc(albumsRepo: AlbumServices()),
-                                  child: AlbumsScreen(),
-                                )));
+                        WidgetsBinding.instance
+                            .addPostFrameCallback((timeStamp) {
+                          Navigator.pushReplacement(
+                              context,
+                              PageTransition(
+                                  type: PageTransitionType.fade,
+                                  curve: Curves.bounceInOut,
+                                  child: BlocProvider(
+                                    create: (context) =>
+                                        AlbumsBloc(albumsRepo: AlbumServices()),
+                                    child: AlbumsScreen(),
+                                  )));
+                        });
                       }
                     } else if (snapshot.hasError) {
                       return Text(snapshot.error.toString());
