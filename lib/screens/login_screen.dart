@@ -54,6 +54,14 @@ class _LoginPageState extends State<LoginPage> {
           child: Column(
             children: [
               Container(
+                //alignment: Alignment.topLeft,
+                margin: EdgeInsets.only(top: 30),
+                child: Text(
+                  "Login",
+                  style: TextStyle(fontSize: 35, color: Colors.black),
+                ),
+              ),
+              Container(
                 margin: EdgeInsets.fromLTRB(20, 20, 20, 0),
                 decoration: BoxDecoration(
                   borderRadius: new BorderRadius.circular(5),
@@ -111,12 +119,19 @@ class _LoginPageState extends State<LoginPage> {
                   cursorColor: Colors.white,
                 ),
               ),
-              RaisedButton(onPressed: () {
-                Text("");
-                if (submitLoginFormData(context))
-                  loginBloc.userLogin(_mobileNoTextFieldController.text,
-                      _passwordTextFieldController.text);
-              }),
+              Container(
+                margin: EdgeInsets.only(top: 20),
+                child: RaisedButton(
+                    child: Text(
+                      "Login",
+                      style: TextStyle(fontSize: 18),
+                    ),
+                    onPressed: () {
+                      if (submitLoginFormData(context))
+                        loginBloc.userLogin(_mobileNoTextFieldController.text,
+                            _passwordTextFieldController.text);
+                    }),
+              ),
               StreamBuilder(
                   stream: loginBloc.loginCall,
                   builder: (context, AsyncSnapshot<User> snapshot) {
