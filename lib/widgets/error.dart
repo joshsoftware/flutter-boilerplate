@@ -4,6 +4,7 @@ class ErrorTxt extends StatelessWidget {
   //
   final String message;
   final Function onTap;
+
   ErrorTxt({this.message, this.onTap});
 
   @override

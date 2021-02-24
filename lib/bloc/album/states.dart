@@ -12,10 +12,12 @@ class AlbumsLoading extends AlbumsState {}
 
 class AlbumsLoaded extends AlbumsState {
   final List<Album> albums;
+
   AlbumsLoaded({this.albums});
 }
 
 class AlbumsListError extends AlbumsState {
   final error;
+
   AlbumsListError({this.error});
 }

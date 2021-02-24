@@ -3,8 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 void main() async {
- // Widget _default = LoginPage();
-
   runApp(MaterialApp(
     theme: ThemeData(
         accentColor: Colors.yellow,

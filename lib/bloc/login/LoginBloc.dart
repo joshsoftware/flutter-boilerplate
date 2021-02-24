@@ -1,16 +1,17 @@
-import 'package:bloc_pattern_flutter_app/models/user.dart';
+import 'package:bloc_pattern_flutter_app/models/login_response.dart';
 import 'package:bloc_pattern_flutter_app/api/login/LoginRepository.dart';
 import 'package:rxdart/rxdart.dart';
 
 class LoginBloc {
   Repository _repository = Repository();
 
-  final _doLogin = PublishSubject<User>();
+  final _doLogin = PublishSubject<LoginResponse>();
 
-  Observable<User> get loginCall => _doLogin.stream;
+  Stream<LoginResponse> get loginCall => _doLogin.stream;
 
   userLogin(String userName, String mobNo) async {
-    User loginResponse = await _repository.doUserLogin(userName, mobNo);
+    LoginResponse loginResponse =
+        await _repository.doUserLogin(userName, mobNo);
     _doLogin.sink.add(loginResponse);
   }
 

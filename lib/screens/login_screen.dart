@@ -1,13 +1,10 @@
-import 'dart:convert';
 import 'package:bloc_pattern_flutter_app/api/album/album_api_provider.dart';
 import 'package:bloc_pattern_flutter_app/bloc/album/bloc.dart';
 import 'package:bloc_pattern_flutter_app/bloc/login/LoginBloc.dart';
-import 'package:bloc_pattern_flutter_app/models/user.dart';
+import 'package:bloc_pattern_flutter_app/models/login_response.dart';
 import 'package:bloc_pattern_flutter_app/screens/albums_screen.dart';
-import 'package:bloc_pattern_flutter_app/screens/home_screen.dart';
 import 'package:bloc_pattern_flutter_app/utils/page_transition.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class LoginPage extends StatefulWidget {
@@ -21,12 +18,15 @@ class LoginPage extends StatefulWidget {
 
 class _LoginPageState extends State<LoginPage> {
   final _scaffoldKey = GlobalKey<ScaffoldState>();
-  final _mobileNoTextFieldController = TextEditingController();
-  final _passwordTextFieldController = TextEditingController();
+  TextEditingController _mobileNoTextFieldController = TextEditingController();
+  TextEditingController _passwordTextFieldController = TextEditingController();
 
   @override
   void initState() {
     // TODO: implement initState
+    _mobileNoTextFieldController.text = "eve.holt@reqres.in";
+    _passwordTextFieldController.text = "cityslicka";
+
     super.initState();
   }
 
@@ -70,10 +70,10 @@ class _LoginPageState extends State<LoginPage> {
                   ),
                 ),
                 child: TextField(
-                  maxLength: 10,
+                  // maxLength: 10,
                   controller: _mobileNoTextFieldController,
-                  keyboardType: TextInputType.numberWithOptions(
-                      signed: true, decimal: true),
+                  /*keyboardType: TextInputType.numberWithOptions(
+                      signed: true, decimal: true),*/
                   style: TextStyle(
                     color: Colors.black,
                   ),
@@ -99,10 +99,10 @@ class _LoginPageState extends State<LoginPage> {
                   ),
                 ),
                 child: TextField(
-                  maxLength: 10,
+                  //maxLength: 10,
                   controller: _passwordTextFieldController,
-                  keyboardType: TextInputType.numberWithOptions(
-                      signed: true, decimal: true),
+                  /*keyboardType: TextInputType.numberWithOptions(
+                      signed: true, decimal: true),*/
                   style: TextStyle(
                     color: Colors.black,
                   ),
@@ -128,20 +128,17 @@ class _LoginPageState extends State<LoginPage> {
                     ),
                     onPressed: () {
                       if (submitLoginFormData(context))
-                        loginBloc.userLogin(_mobileNoTextFieldController.text,
-                            _passwordTextFieldController.text);
+                        loginBloc.userLogin(
+                            _mobileNoTextFieldController.text.toString(),
+                            _passwordTextFieldController.text.toString());
                     }),
               ),
               StreamBuilder(
                   stream: loginBloc.loginCall,
-                  builder: (context, AsyncSnapshot<User> snapshot) {
+                  builder: (context, AsyncSnapshot<LoginResponse> snapshot) {
                     if (snapshot.hasData) {
-                      if (snapshot.data.message != null &&
-                          snapshot.data.message != "") {
-                        debugPrint("Login error:  " + snapshot.data.message);
-                        return Text(snapshot.data.message);
-                      } else {
-                        debugPrint("User details:  " + snapshot.data.name);
+                      if (snapshot.data.token != "") {
+                        debugPrint("User token:  " + snapshot.data.token);
 
                         WidgetsBinding.instance
                             .addPostFrameCallback((timeStamp) {
@@ -156,14 +153,14 @@ class _LoginPageState extends State<LoginPage> {
                                     child: AlbumsScreen(),
                                   )));
                         });
+                      } else {
+                        FocusScope.of(context).unfocus();
+                        /*SnackBar snackBar = SnackBar(content: Text(snapshot.data.error));
+                        _scaffoldKey.currentState.showSnackBar(snackBar);
+*/
+                        return Text(snapshot.data.error);
                       }
-                    } else if (snapshot.hasError) {
-                      return Text(snapshot.error.toString());
                     }
-                    /*else {
-                      debugPrint("Login error:  Some error");
-                      return Text("Some error occurred");
-                    }*/
                     return Center();
                   }),
             ],

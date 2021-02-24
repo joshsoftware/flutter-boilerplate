@@ -5,12 +5,13 @@ import 'package:flutter/material.dart';
 class ListRow extends StatelessWidget {
   //
   final Album album;
+
   ListRow({this.album});
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.fromLTRB(10,5,10,10),
+      margin: EdgeInsets.fromLTRB(10, 5, 10, 10),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.start,

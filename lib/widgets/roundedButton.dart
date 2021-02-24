@@ -3,7 +3,13 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class RoundedButton extends StatefulWidget {
-  RoundedButton({Key key, @required this.title, @required this.parentAction, this.fontSize: 17, this.height: 40, this.width})
+  RoundedButton(
+      {Key key,
+      @required this.title,
+      @required this.parentAction,
+      this.fontSize: 17,
+      this.height: 40,
+      this.width})
       : super(key: key);
 
   final String title;

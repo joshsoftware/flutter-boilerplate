@@ -46,4 +46,5 @@ class AlbumsBloc extends Bloc<AlbumEvents, AlbumsState> {
     }
   }
 }
+
 final albumBloc = AlbumsBloc();

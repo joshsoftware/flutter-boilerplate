@@ -15,7 +15,6 @@ class AlbumsScreen extends StatefulWidget {
 }
 
 class _AlbumsScreenState extends State<AlbumsScreen> {
-
   @override
   void initState() {
     super.initState();
