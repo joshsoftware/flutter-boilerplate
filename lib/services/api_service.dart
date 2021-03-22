@@ -12,7 +12,7 @@ class ApiService {
     return ApiHelper().postRequest(
       context,
       _uri,
-      loginModel.toJson(),
+      loginModel.toMap(),
       useAuth: false,
       showLoader: false,
       responseName: "Login",

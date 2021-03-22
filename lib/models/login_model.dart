@@ -14,7 +14,7 @@ class LoginModel {
     );
   }
 
-  Map<String, dynamic> toJson() => {
+  Map<String, dynamic> toMap() => {
         'email': email,
         'password': password,
       };
