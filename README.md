@@ -60,7 +60,7 @@ Important constants files are
 
 #### Description
 
-For productive API integration a Base Response Model is designed. This model can be modified according to Project's API structure.
+Base Response Model is designed for productive API integration. This model can be modified according to Project's API structure.
 
 File name
 
