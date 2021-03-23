@@ -1,6 +1,6 @@
 import 'dart:convert';
 import 'package:flutter/material.dart';
-import 'package:flutter_mvvm_boilerplate/models/response_data.dart';
+import 'package:flutter_mvvm_boilerplate/models/response_data_model.dart';
 import 'package:flutter_mvvm_boilerplate/utils/pretty_json_print.dart';
 import 'package:flutter_mvvm_boilerplate/utils/constants/singleton_constant.dart';
 import 'package:flutter_mvvm_boilerplate/widgets/loader_widget.dart';
@@ -15,8 +15,8 @@ class ApiHelper {
 
   //Base headers Supports version
   //Gets Token from singleton class which is set either on login or app startup in main.dart
-  static Future<Map> _getHeaders(bool useAuth, int apiVersion) async {
-    Map _map = {
+  static Future<Map<String, String>> _getHeaders(bool useAuth, int apiVersion) async {
+    Map<String, String> _map = {
       //Add or Remove headers from here
       'Content-Type': 'application/json',
       'Authorization': useAuth ? 'Bearer ' + await SingletonConstants().getToken : "",
