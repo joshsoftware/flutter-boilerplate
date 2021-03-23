@@ -1,7 +1,7 @@
 import 'dart:async';
 import 'package:connectivity/connectivity.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_mvvm_boilerplate/widgets/edge_alert.dart';
+import 'package:flutter_mvvm_boilerplate/widgets/alert_bar.dart';
 
 class NetworkCheck {
   static Future<bool> check() async {

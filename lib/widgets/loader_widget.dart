@@ -4,12 +4,7 @@ class LoaderWidget {
   static OverlayEntry _overlayEntry;
   static bool _onScreen = false;
 
-  static bool isLoading() {
-    if (_onScreen) {
-      return true;
-    }
-    return false;
-  }
+  static bool isLoaderOn() => _onScreen;
 
   static void showLoader(BuildContext context) {
     FocusScope.of(context).requestFocus(new FocusNode());
@@ -28,6 +23,7 @@ class LoaderWidget {
     }
   }
 
+  //Loader can be changed from here
   static OverlayEntry createOverlayEntry(BuildContext context) {
     return OverlayEntry(
         builder: (context) => Positioned(

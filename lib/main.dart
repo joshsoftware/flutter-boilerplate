@@ -17,8 +17,7 @@ import 'package:flutter_mvvm_boilerplate/views/login_view.dart';
 
 void main() async {
   Widget _defaultHome = AppConstants.isCustomURLBuild && !AppConstants.isProdBuild ? null : LoginView();
-//
-// //  FlutterError.onError = Crashlytics.instance.recordFlutterError;
+
   WidgetsFlutterBinding.ensureInitialized();
   await SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp, DeviceOrientation.portraitDown]);
 //

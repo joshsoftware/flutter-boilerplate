@@ -3,7 +3,7 @@ import 'package:flutter_mvvm_boilerplate/models/login_model.dart';
 import 'package:flutter_mvvm_boilerplate/models/response_data.dart';
 import 'package:flutter_mvvm_boilerplate/services/api_service.dart';
 import 'package:flutter_mvvm_boilerplate/utils/constants/app_constants.dart';
-import 'package:flutter_mvvm_boilerplate/widgets/edge_alert.dart';
+import 'package:flutter_mvvm_boilerplate/widgets/alert_bar.dart';
 
 class LoginViewModel with ChangeNotifier {
   ApiStatus loadingStatus = ApiStatus.started;
