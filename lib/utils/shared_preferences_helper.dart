@@ -1,5 +1,6 @@
 import 'package:shared_preferences/shared_preferences.dart';
 
+/// Common shared preference helper class
 class SharedPreferencesHelper {
   static final String _authToken = "authToken";
   static final String _customURL = "customURL";

@@ -1,6 +1,7 @@
 import 'package:flutter_mvvm_boilerplate/utils/constants/app_constants.dart';
 import 'package:flutter_mvvm_boilerplate/utils/constants/singleton_constant.dart';
 
+///Api Paths are set here
 class ApiConstants {
   //Check if build is production or staging and use url accordingly      PRODUCTION     :     STAGING
   static const String SERVER_BASE_URL = AppConstants.isProdBuild ? "https://reqres.in" : "https://reqres.in";

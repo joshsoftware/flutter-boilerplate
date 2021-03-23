@@ -1,5 +1,6 @@
-class SizeConstants {
+/// Common Size constants are set here
 
+class SizeConstants {
   //f denotes font sizes
   static const double fTITLE_TEXT = 16.0;
 

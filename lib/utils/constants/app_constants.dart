@@ -1,3 +1,5 @@
+///Application related constants are set here
+
 class AppConstants {
   static const String APP_NAME = 'Flutter Boiler Plate';
 

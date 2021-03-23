@@ -3,11 +3,11 @@ import 'package:connectivity/connectivity.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mvvm_boilerplate/widgets/alert_bar.dart';
 
-//Identifies Network Availability.
-//Automated alert - flag controlled
-//Things to change:
-//              1. Message Alert widget - can be left default, change as per UI design.
-//
+///Identifies Network Availability.
+///Automated alert - flag controlled
+///Things to change:
+///              1. Message Alert widget - can be left default, change as per UI design.
+///
 class NetworkCheck {
   static Future<bool> check() async {
     var connectivityResult = await (Connectivity().checkConnectivity());

@@ -3,7 +3,6 @@ import 'package:flutter_mvvm_boilerplate/view_models/login_view_model.dart';
 import 'package:flutter_mvvm_boilerplate/views/custom_url_view.dart';
 import 'package:flutter_mvvm_boilerplate/views/login_view.dart';
 import 'package:provider/provider.dart';
-import 'package:provider/single_child_widget.dart';
 
 class NavigationHelper {
   static getCustomURLScreenWithProvider() {

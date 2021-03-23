@@ -1,6 +1,9 @@
 import 'package:flutter_mvvm_boilerplate/utils/constants/api_constants.dart';
 import 'package:flutter_mvvm_boilerplate/utils/shared_preferences_helper.dart';
 
+/// This is Singleton Class. Data like user object, token etc can be stored here for easy access around the application.
+/// Always create a getter and setter for variables.
+/// Direct initialisation and access is not recommended.
 class SingletonConstants {
   static SingletonConstants _instance;
 

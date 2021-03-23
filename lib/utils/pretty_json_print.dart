@@ -1,5 +1,6 @@
 import 'dart:convert';
 
+///Helps printing formatted server response
 String prettyJson(dynamic json, {int indent = 2}) {
   var spaces = ' ' * indent;
   var encoder = JsonEncoder.withIndent(spaces);

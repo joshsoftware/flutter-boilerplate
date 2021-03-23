@@ -9,15 +9,15 @@ import 'package:flutter_mvvm_boilerplate/utils/shared_preferences_helper.dart';
 import 'package:flutter_mvvm_boilerplate/widgets/alert_bar.dart';
 import 'package:http/http.dart' as http;
 
-//This is generic API Helper and is very efficient.
-//Auto Checks Network Availability
-//Automated Loader - flag controlled
-//Cleaner formatted response
-//Automated message/error dialog - flag controller
-//Things to change:
-//              1. Error and Message Alert widget - can be left default, change as per UI design.
-//              2. Header -  Change as per project spec.
-//
+///This is generic API Helper and is very efficient.
+///Auto Checks Network Availability
+///Automated Loader - flag controlled
+///Cleaner formatted response
+///Automated message/error dialog - flag controller
+///Things to change:
+///              1. Error and Message Alert widget - can be left default, change as per UI design.
+///              2. Header -  Change as per project spec.
+///
 class ApiHelper {
   //Timeout in seconds
   static const int DEFAULT_TIMEOUT = 25;

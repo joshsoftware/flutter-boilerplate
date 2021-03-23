@@ -1,12 +1,12 @@
 import 'dart:convert';
 import 'package:http/http.dart' as http;
 
-//This is generic response data model please modify it according to your API Structure.
-//Model is designed to be generic please keep it that way
-//Things to change:
-//              1. Change data section - key where your data is.
-//              2. Error and Messages -  key where your error, errors and message are.
-//              3. okAndContainsData Condition - Change logic according to your API Structure
+///This is generic response data model please modify it according to your API Structure.
+///Model is designed to be generic please keep it that way
+///Things to change:
+///              1. Change data section - key where your data is.
+///              2. Error and Messages -  key where your error, errors and message are.
+///              3. okAndContainsData Condition - Change logic according to your API Structure
 class ResponseData {
   int statusCode;
   bool ok;
