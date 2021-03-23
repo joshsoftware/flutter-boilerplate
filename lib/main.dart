@@ -1,33 +1,26 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter/widgets.dart';
-import 'package:flutter_mvvm_boilerplate/utils/constants/color_constants.dart';
 import 'package:flutter_mvvm_boilerplate/utils/constants/app_constants.dart';
+import 'package:flutter_mvvm_boilerplate/utils/constants/color_constants.dart';
 import 'package:flutter_mvvm_boilerplate/utils/navigation_helper.dart';
-import 'package:flutter_mvvm_boilerplate/view_models/custom_url_view_model.dart';
-import 'package:flutter_mvvm_boilerplate/view_models/login_view_model.dart';
 import 'package:flutter_mvvm_boilerplate/views/custom_url_view.dart';
 import 'package:flutter_mvvm_boilerplate/views/login_view.dart';
-import 'package:provider/provider.dart';
-
-//
-// Future<bool> checkForLogin() async {
-//   String authToken = await SharedPreferencesHelper.getAuthToken();
-//   if (authToken != null) {
-//     GlobalConstant().token = authToken;
-//     return true;
-//   }
-//   return false;
-// }
 
 void main() async {
+  //Check if custom URL flag is set and make safe check for production
+  //If true custom url screen is shown
+  //
   Widget _defaultHome = AppConstants.isCustomURLBuild && !AppConstants.isProdBuild
-      ? NavigationHelper.getCustomURLScreenWithProvider()
-      : NavigationHelper.getLoginScreenWithProvider();
+      ? NavigationHelper.getCustomURLViewWithProvider()
+      : NavigationHelper.getLoginViewWithProvider();
 
   WidgetsFlutterBinding.ensureInitialized();
+  //Locks orientation
+  //Can be changed in runtime via same method.
   await SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp, DeviceOrientation.portraitDown]);
 
+  ///Sets Status Bar Color
   // SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(statusBarColor: ));
 
   runApp(
@@ -39,10 +32,12 @@ void main() async {
       ),
       debugShowCheckedModeBanner: false,
       routes: {
-        //Home Route is Denoted as /
         '/': (context) => _defaultHome,
-        CustomURLView.TAG: (context) => NavigationHelper.getCustomURLScreenWithProvider(),
-        LoginView.TAG: (context) => NavigationHelper.getLoginScreenWithProvider(),
+
+        ///Home Route is Denoted as /
+        ///Set tag in view itself, so it can be used directly maintaining consistency.
+        CustomURLView.TAG: (context) => NavigationHelper.getCustomURLViewWithProvider(),
+        LoginView.TAG: (context) => NavigationHelper.getLoginViewWithProvider(),
       },
     ),
   );
