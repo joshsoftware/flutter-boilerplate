@@ -11,7 +11,10 @@ class AppConstants {
   //Will set base URL to Production if set true.
   static const bool isProdBuild = false;
 
-  static const Map<String, String> Countries = {"United States of America": "us", "India": "in", "Korea": "kr", "China": "ch"};
+  static const Map<String, String> Countries = {
+    "India": "in",
+    "United States of America": "us",
+  };
 }
 
 //API status enums

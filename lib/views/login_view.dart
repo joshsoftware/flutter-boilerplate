@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_mvvm_boilerplate/utils/constants/app_constants.dart';
 import 'package:flutter_mvvm_boilerplate/utils/constants/color_constants.dart';
+import 'package:flutter_mvvm_boilerplate/utils/constants/font_family_constants.dart';
 import 'package:flutter_mvvm_boilerplate/view_models/login_view_model.dart';
 import 'package:flutter_mvvm_boilerplate/widgets/common_button.dart';
 import 'package:flutter_mvvm_boilerplate/widgets/common_text_field.dart';
@@ -53,18 +54,26 @@ class _LoginViewState extends State<LoginView> {
   Widget build(BuildContext context) {
     LoginViewModel _loginViewModel = Provider.of<LoginViewModel>(context);
     return Scaffold(
+      ///This flag will allow to ignore Keyboard Overflow.
+      resizeToAvoidBottomPadding: false,
       appBar: AppBar(
-        title: Text(AppConstants.APP_NAME),
+        title: Text(
+          AppConstants.APP_NAME,
+          style: TextStyle(fontFamily: FontFamilyConstants.PLAY_FAIR_DISPLAY),
+        ),
       ),
       body: Column(
         children: [
           Padding(
-            padding: const EdgeInsets.only(top: 50),
-            child: CommonTextField(
-              label: "Email",
-              hint: "Enter Email here",
-              controller: _loginViewModel.emailTextFieldController,
-            ),
+              padding: const EdgeInsets.only(top: 50, bottom: 10),
+              child: Image.asset(
+                "assets/images/logos/Google_flutter_logo.png",
+                width: 150,
+              )),
+          CommonTextField(
+            label: "Email",
+            hint: "Enter Email here",
+            controller: _loginViewModel.emailTextFieldController,
           ),
           CommonTextField(
             label: "Password",

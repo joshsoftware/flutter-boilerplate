@@ -21,7 +21,7 @@ import 'package:http/http.dart' as http;
 ///
 class ApiHelper {
   //Timeout in seconds
-  static const int DEFAULT_TIMEOUT = 25;
+  static const int DEFAULT_TIMEOUT = 45;
 
   //Base headers Supports version
   //Gets Token from singleton class which is set either on login or app startup in main.dart

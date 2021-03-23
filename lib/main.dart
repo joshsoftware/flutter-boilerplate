@@ -17,7 +17,7 @@ void main() async {
 
   WidgetsFlutterBinding.ensureInitialized();
   //Locks orientation
-  //Can be changed in runtime via same method.
+  //Can be changed at runtime via same method.
   await SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp, DeviceOrientation.portraitDown]);
 
   ///Sets Status Bar Color
