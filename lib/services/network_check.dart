@@ -1,4 +1,5 @@
 import 'dart:async';
+
 import 'package:connectivity/connectivity.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mvvm_boilerplate/widgets/alert_bar.dart';

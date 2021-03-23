@@ -1,12 +1,13 @@
 import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_mvvm_boilerplate/models/response_data_model.dart';
-import 'package:flutter_mvvm_boilerplate/utils/pretty_json_print.dart';
-import 'package:flutter_mvvm_boilerplate/utils/constants/singleton_constant.dart';
-import 'package:flutter_mvvm_boilerplate/widgets/loader_widget.dart';
 import 'package:flutter_mvvm_boilerplate/services/network_check.dart';
+import 'package:flutter_mvvm_boilerplate/utils/constants/singleton_constant.dart';
+import 'package:flutter_mvvm_boilerplate/utils/pretty_json_print.dart';
 import 'package:flutter_mvvm_boilerplate/utils/shared_preferences_helper.dart';
 import 'package:flutter_mvvm_boilerplate/widgets/alert_bar.dart';
+import 'package:flutter_mvvm_boilerplate/widgets/loader_widget.dart';
 import 'package:http/http.dart' as http;
 
 ///This is generic API Helper and is very efficient.

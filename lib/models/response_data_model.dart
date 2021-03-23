@@ -1,4 +1,5 @@
 import 'dart:convert';
+
 import 'package:http/http.dart' as http;
 
 ///This is generic response data model please modify it according to your API Structure.

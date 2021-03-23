@@ -1,9 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_mvvm_boilerplate/models/login_model.dart';
-import 'package:flutter_mvvm_boilerplate/models/response_data_model.dart';
-import 'package:flutter_mvvm_boilerplate/services/api_service.dart';
 import 'package:flutter_mvvm_boilerplate/utils/constants/api_constants.dart';
-import 'package:flutter_mvvm_boilerplate/utils/constants/app_constants.dart';
 import 'package:flutter_mvvm_boilerplate/utils/constants/singleton_constant.dart';
 import 'package:flutter_mvvm_boilerplate/utils/shared_preferences_helper.dart';
 import 'package:flutter_mvvm_boilerplate/views/login_view.dart';

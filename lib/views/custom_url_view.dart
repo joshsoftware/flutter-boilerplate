@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_mvvm_boilerplate/utils/constants/app_constants.dart';
 import 'package:flutter_mvvm_boilerplate/view_models/custom_url_view_model.dart';
-import 'package:flutter_mvvm_boilerplate/view_models/login_view_model.dart';
 import 'package:flutter_mvvm_boilerplate/widgets/common_button.dart';
 import 'package:flutter_mvvm_boilerplate/widgets/common_text_field.dart';
 import 'package:provider/provider.dart';
