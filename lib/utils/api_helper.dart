@@ -9,6 +9,15 @@ import 'package:flutter_mvvm_boilerplate/utils/shared_preferences_helper.dart';
 import 'package:flutter_mvvm_boilerplate/widgets/alert_bar.dart';
 import 'package:http/http.dart' as http;
 
+//This is generic API Helper and is very efficient.
+//Auto Checks Network Availability
+//Automated Loader - flag controlled
+//Cleaner formatted response
+//Automated message/error dialog - flag controller
+//Things to change:
+//              1. Error and Message Alert widget - can be left default, change as per UI design.
+//              2. Header -  Change as per project spec.
+//
 class ApiHelper {
   //Timeout in seconds
   static const int DEFAULT_TIMEOUT = 25;
@@ -48,15 +57,23 @@ class ApiHelper {
         debugPrint("Error:${response.reasonPhrase}");
         debugPrint("$responseName Response:${response.body}");
       }
-      responseData = ResponseData.fromResponse(response);
+      try {
+        responseData = ResponseData.fromResponse(response);
+      } catch (e) {
+        responseData = ResponseData(
+            errors: ResponseErrors(message: "Request failed with status: ${response.statusCode}. \n ${response.reasonPhrase}"));
+
+        if (showLog) debugPrint("$e");
+      }
 
       if (showMessage) {
 //                if (responseData.message != null) await Constant().genericErrorDialog(context, responseData.message, 0);
       }
       if (showError) {
-        if (responseData.errors != null)
+        if (responseData.errors != null) {
           AlertBar.show(context,
               title: 'Error', description: responseData.errors.message, gravity: AlertBar.TOP, backgroundColor: Colors.red);
+        }
       }
     }
     return responseData;
@@ -69,6 +86,7 @@ class ApiHelper {
       bool useAuth: true,
       String responseName: "",
       bool showLog: true,
+      bool showConnectivityError: true,
       int apiVersion: 1}) async {
     ResponseData responseData = ResponseData();
     if (showLog) {
@@ -77,7 +95,7 @@ class ApiHelper {
     }
 
     var jsonBody = JsonEncoder().convert(map);
-    if (await NetworkCheck.isOnline(context)) {
+    if (await NetworkCheck.isOnline(context, showConnectivityError)) {
       if (showLoader) LoaderWidget.showLoader(context);
       await http
           .post(requestUri, body: jsonBody, headers: await _getHeaders(useAuth, apiVersion))
@@ -111,6 +129,7 @@ class ApiHelper {
     bool useAuth: true,
     String responseName: "",
     bool showLog: true,
+    bool showConnectivityError: true,
     int apiVersion: 1,
   }) async {
     ResponseData responseData = ResponseData();
@@ -119,7 +138,7 @@ class ApiHelper {
       debugPrint("Map: $map");
     }
     var jsonBody = JsonEncoder().convert(map);
-    if (await NetworkCheck.isOnline(context)) {
+    if (await NetworkCheck.isOnline(context, showConnectivityError)) {
       if (showLoader) LoaderWidget.showLoader(context);
 
       await http
@@ -151,6 +170,7 @@ class ApiHelper {
       bool useAuth: true,
       String responseName: "",
       bool showLog: true,
+      bool showConnectivityError: true,
       int apiVersion: 1}) async {
     ResponseData responseData = ResponseData();
     if (showLog) {
@@ -158,7 +178,7 @@ class ApiHelper {
       debugPrint("Map: $map");
     }
     var jsonBody = JsonEncoder().convert(map);
-    if (await NetworkCheck.isOnline(context)) {
+    if (await NetworkCheck.isOnline(context, showConnectivityError)) {
       if (showLoader) LoaderWidget.showLoader(context);
 
       await http
@@ -190,13 +210,14 @@ class ApiHelper {
       bool useAuth: true,
       String responseName: "",
       bool showLog: true,
+      bool showConnectivityError: true,
       int apiVersion: 1}) async {
     ResponseData responseData = ResponseData();
     if (showLog) {
       debugPrint("Requested URL: " + requestUri.toString());
     }
 
-    if (await NetworkCheck.isOnline(context)) {
+    if (await NetworkCheck.isOnline(context, showConnectivityError)) {
       if (showLoader) LoaderWidget.showLoader(context);
 
       await http
@@ -228,12 +249,13 @@ class ApiHelper {
       bool useAuth: true,
       String responseName: "",
       bool showLog: true,
+      bool showConnectivityError: true,
       int apiVersion: 1}) async {
     ResponseData responseData = ResponseData();
     if (showLog) {
       debugPrint("Requested URL: " + requestUri.toString());
     }
-    if (await NetworkCheck.isOnline(context)) {
+    if (await NetworkCheck.isOnline(context, showConnectivityError)) {
       if (showLoader) LoaderWidget.showLoader(context);
 
       await http

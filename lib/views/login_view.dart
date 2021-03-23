@@ -24,13 +24,6 @@ class _LoginViewState extends State<LoginView> {
 
   _buildSubmitButton(LoginViewModel loginViewModel) {
     switch (loginViewModel.loadingStatus) {
-      case ApiStatus.idle:
-        return CommonButton(
-          title: "Login",
-          function: () {
-            loginViewModel.loginUser(context: context);
-          },
-        );
       case ApiStatus.started:
         return Padding(
           padding: EdgeInsets.all(8.0),
@@ -48,7 +41,7 @@ class _LoginViewState extends State<LoginView> {
 
       default:
         return CommonButton(
-          title: "Login",
+          title: "Login with Widget Specific Loader",
           function: () {
             loginViewModel.loginUser(context: context);
           },
@@ -79,6 +72,12 @@ class _LoginViewState extends State<LoginView> {
             controller: _loginViewModel.passwordTextFieldController,
           ),
           _buildSubmitButton(_loginViewModel),
+          CommonButton(
+            title: "Login with Common Loader",
+            function: () {
+              _loginViewModel.loginUser(context: context, logInWithCommonLoader: true);
+            },
+          )
         ],
       ),
     );

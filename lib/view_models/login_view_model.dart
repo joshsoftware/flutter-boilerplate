@@ -15,7 +15,7 @@ class LoginViewModel with ChangeNotifier {
   TextEditingController emailTextFieldController = TextEditingController(text: "eve.holt@reqres.in");
   TextEditingController passwordTextFieldController = TextEditingController(text: "cityslicka");
 
-  void loginUser({@required BuildContext context}) async {
+  void loginUser({@required BuildContext context, bool logInWithCommonLoader: false}) async {
     if (emailTextFieldController.text.isEmpty) {
       AlertBar.show(context, title: "Enter email", description: "Please enter a Email");
       return;
@@ -24,13 +24,15 @@ class LoginViewModel with ChangeNotifier {
       AlertBar.show(context, title: "Enter password", description: "Please enter a Password");
       return;
     }
-    loadingStatus = ApiStatus.started;
-
-    notifyListeners();
+    if (!logInWithCommonLoader) {
+      loadingStatus = ApiStatus.started;
+      notifyListeners();
+    }
 
     LoginModel _loginModel = LoginModel(email: emailTextFieldController.text.trim(), password: passwordTextFieldController.text);
 
-    ResponseData responseData = await ApiService().loginUser(context: context, loginModel: _loginModel);
+    ResponseData responseData =
+        await ApiService().loginUser(context: context, loginModel: _loginModel, logInWithCommonLoader: logInWithCommonLoader);
 
     if (responseData.ok) {
       //TODO: Push to next screen

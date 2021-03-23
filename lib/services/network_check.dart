@@ -3,6 +3,11 @@ import 'package:connectivity/connectivity.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mvvm_boilerplate/widgets/alert_bar.dart';
 
+//Identifies Network Availability.
+//Automated alert - flag controlled
+//Things to change:
+//              1. Message Alert widget - can be left default, change as per UI design.
+//
 class NetworkCheck {
   static Future<bool> check() async {
     var connectivityResult = await (Connectivity().checkConnectivity());
@@ -15,7 +20,7 @@ class NetworkCheck {
     return false;
   }
 
-  static Future<bool> isOnline(BuildContext context) async {
+  static Future<bool> isOnline(BuildContext context, bool showError) async {
     var connectivityResult = await (Connectivity().checkConnectivity());
     if (connectivityResult == ConnectivityResult.mobile) {
       return true;
@@ -23,8 +28,9 @@ class NetworkCheck {
       return true;
     }
     debugPrint("No Internet");
-    AlertBar.show(context,
-        title: 'No Connectivity', description: 'Please Check Internet Connection', gravity: AlertBar.TOP, backgroundColor: Colors.red);
+    if (showError)
+      AlertBar.show(context,
+          title: 'No Connectivity', description: 'Please Check Internet Connection', gravity: AlertBar.TOP, backgroundColor: Colors.red);
 
     return false;
   }
