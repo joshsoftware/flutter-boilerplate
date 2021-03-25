@@ -21,27 +21,65 @@ Flutter Boiler Plate containing pre initialised services and following standardi
 
 ## Setup Guide
 
- 1.  Pubspec.yaml
- 2.  Constants
- 3.  Base Response Model
- 4.  Network layer
- 5.  Navigation
-## .
+ 1.  [Initial Setup](1.%20Initial%20Setup)
+ 2.  [Constants](2.%20Constants)
+ 3.  [Base Response Model](3.%20%20Base%20Response%20Model)
+ 4.  [Network layer](4.%20Network%20Layer)
+ 5.  [Navigation](5.%20Navigation)
+
+<br>
 
 
+## 1. Initial Setup
 
-## Pubspec.yaml
+1. Clone this repo
+```sh
+    git clone https://github.com/joshsoftware/flutter-boilerplate.git
+```
 
-#### What to change here?
+2. Rename "**flutter-boilerplate**" folder to your "**project_name**"
+3.  Open folder in Android Studio
+4. Open project's pubspec.yaml and change
+  // This is Flutter level project name do not consider this as bundle id or application id
+	 - "name: flutter_mvvm_boilerplate" to "name: project_name" 
+	 - "description: Ready to use flutter boiler plate" to "description: Your project description"
+	 
+ 5. In Android Studio's Terminal run
+ ```sh
+ flutter pub get
+ ```
+ Note: You'll start getting errors in all your files it's because we've changed the flutter package name and imports are still directing to old package name.
+ 
+ 6. Right click on "**lib**" folder and click "**Replace in path**" and replace "**flutter_mvvm_boilerplate**" to "**project_name**" (same as you used in pubspec.yaml) click **"Replace All"**.
+Note: Most of your errors will go away if not just close and reopen Android Studio once.
 
- - Change your project description
- - Add and register project specific assets
- - Application version
- - Required third party libs.
+7. Change Application name and ID: Open terminal tab in Android Studio and run following commands.
 
-## Constants
 
-#### Description
+• This will install package rename tool
+```sh
+flutter pub global activate rename 
+```
+
+• This will rename your Application name
+```sh
+flutter pub global run rename --appname "Project Name"
+```
+
+• This will rename your Application ID/Bundle ID
+```sh
+flutter pub global run rename --bundleId com.companyname.projectname
+```
+<br>
+
+ 8. Add and register project specific assets and you're ready to go.
+<br>
+<br>
+
+
+## 2. Constants
+
+**Description**
 
 Maintainability is achieved by distributing type of Constant Data into specific category. 
 Important constants files are
@@ -55,10 +93,12 @@ Important constants files are
  - singleton_constants.dart
       - This is a Singleton class for general purpose data sharing over the app User object, token etc.
 - Other constants files are self explanatory
+<br>
+<br>
 
-## Base Response Model
+## 3.  Base Response Model
 
-#### Description
+**Description**
 
 Base Response Model is designed for productive API integration. This model can be modified according to Project's API structure.
 
@@ -66,7 +106,7 @@ File name
 
 - response_data_model.dart
 
-###  Keys to change
+**Keys to change**
 
  1. Data
  2. Error and Message
@@ -74,7 +114,8 @@ File name
  
  Based on your API Structure change the 'data' key to specified key where all your response's data will be delivered.
  Example: For given API structure 
-  ```json
+ 
+  ```dart
 {
   'data': [
     {
@@ -87,7 +128,7 @@ File name
     }
   ],
 
-'message' : 'Data fetched'
+'message' : 'Data fetched',
 'error' : 'None till now'
 }
 ```
@@ -101,11 +142,13 @@ File name
 ```
  
  Though this model is null safe but it's not safe from parsing errors. 
- Always cross checks keys name and hierarchy of them.
+ Always cross checks key names and hierarchy of them.
+<br>
+<br>
 
- ## Network Layer
+ ## 4. Network Layer
 
-#### Description
+**Description**
 
 Networking layer is preinitialised with following features.
 
@@ -122,7 +165,8 @@ Responsible files
  - network_check.dart
  - pretty_json_print.dart
 
-###  Things to change
+**Things to change**
+
 In  **api_helper.dart** change the following as per your project needs.
 
  - DEFAULT_TIMEOUT this is a top level variable denotes time out seconds. Default is 45.
@@ -130,7 +174,7 @@ In  **api_helper.dart** change the following as per your project needs.
  - _handleError this is error handler for all REST calls you can handle unauthorised logout and 
 	error alert directly from here.
 
-###  Usage example
+**Usage example**
 
  1. Declare end point you want consume in api_constants.dart in given format.
  ```dart
@@ -167,10 +211,13 @@ if (responseData.okAndContainsData ) {
 }
 
 ```
+<br>
+<br>
 
- ## Navigation
+ ## 5. Navigation
 
-#### Description
+**Description**
+
 Navigation is straight forward
 
 Responsible file
@@ -195,7 +242,8 @@ routes: {
 ```dart
 ///Naming Standard:  
 ///Fun that gives View with provider             - getViewNameWithProvider()  
-///Fun that pushes View                          - gotoViewName()  
+///Fun that pushes View                          - gotoViewName() 
+///Fun that return Data 						 - gotoViewNameWithResult()
 ///Fun(Data data) that pushes View with data     - gotoViewNameWithData(data)  
 ///Fun that clears stack and pushes View         - clearAndGotoViewName()
 ```
