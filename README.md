@@ -14,7 +14,7 @@ Flutter Boiler Plate containing pre initialised services and following standardi
 | Network services | :white_check_mark: |
 | Using Providers | :white_check_mark: |
 | Modular | :white_check_mark: |
-| Assets and Custom Fonts | :white_check_mark: |
+| Assets and custom Fonts | :white_check_mark: |
 | Embedded custom URL screen | :white_check_mark: |
 
 
