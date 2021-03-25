@@ -201,10 +201,11 @@ Uri _loginUri = Uri.parse(baseURL + ApiConstants.LOGIN);
  
  ```dart
 Map map =  { "email": "eve.holt@reqres.in","password": "cityslicka" }
-// If showConnectivityError is set to false will Throw NoNetworkException in case of no nonnectivity.
-// showConnectivityError: false allows developer to handle no connectivity exception manually.
 
-//Plug and Play with common loader and dialog
+
+// If showConnectivityError is set to false will Throw NoNetworkException in case of no connectivity.
+// showConnectivityError: false allows developer to handle no connectivity exception manually.
+// Plug and Play with common loader and dialog
 ResponseData responseData =  
     await ApiHelper().postRequest(context, _loginUri, map,  
           useAuth: false, showLoader: true, responseName: "Login",
