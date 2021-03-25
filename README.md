@@ -184,20 +184,20 @@ In  **api_helper.dart** change the following as per your project needs.
  static const String LOGIN = "/api/login";
  ```
  
- 2.  Create **URI** with **base URL** and **end point** in your function.
+ 2.  Create **URI** with **base URL** and **end point** in your function
 	   
-```dart
+ ```dart
 //  baseURL here is Getter of String type that returns your base URL from
 //  api_constants.dart and is directly accesibile.
 
 Uri _loginUri = Uri.parse(baseURL + ApiConstants.LOGIN);
+ ```
 
-```
-
- -  Use ApiHelper class it contains plug and play REST callers
+ - Use ApiHelper class it contains plug and play REST callers
  -  ApiHelper have 2 types of caller
-				 1. Plug and Play - This requires BuildContext and contains common loader and alert dialog built in.
-				 2. BG - This doesn't requires context can be called in Background but it doesn't contains UI elements everything will be handle by developer.
+	 - Plug and Play  This requires BuildContext and contains common loader and alert dialog built in
+	 - BG : This doesn't requires context can be called in Background but it doesn't contains UI elements everything will be handle by developer
+
  
  ```dart
 Map map =  { "email": "eve.holt@reqres.in","password": "cityslicka" }
