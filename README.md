@@ -243,7 +243,7 @@ routes: {
 ///Naming Standard:  
 ///Fun that gives View with provider             - getViewNameWithProvider()  
 ///Fun that pushes View                          - gotoViewName() 
-///Fun that return Data 						 - gotoViewNameWithResult()
+///Fun that return Data				 - gotoViewNameWithResult()
 ///Fun(Data data) that pushes View with data     - gotoViewNameWithData(data)  
 ///Fun that clears stack and pushes View         - clearAndGotoViewName()
 ```
