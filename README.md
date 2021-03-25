@@ -21,11 +21,11 @@ Flutter Boiler Plate containing pre initialised services and following standardi
 
 ## Setup Guide
 
- 1.  [Initial Setup](1.%20Initial%20Setup)
- 2.  [Constants](2.%20Constants)
- 3.  [Base Response Model](3.%20%20Base%20Response%20Model)
- 4.  [Network layer](4.%20Network%20Layer)
- 5.  [Navigation](5.%20Navigation)
+ 1.  [Initial Setup](#1-initial-setup)
+ 2.  [Constants](#2-constants)
+ 3.  [Base Response Model](3--base-response-model)
+ 4.  [Network layer](#4-network-layer)
+ 5.  [Navigation](#5-navigation)
 
 <br>
 
