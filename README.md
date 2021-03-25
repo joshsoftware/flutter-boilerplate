@@ -1,5 +1,6 @@
 
 
+
 # Flutter MVVM Boiler Plate
   
 Flutter Boiler Plate containing pre initialised services and following standardised protocol for code quality.
@@ -192,24 +193,45 @@ In  **api_helper.dart** change the following as per your project needs.
 Uri _loginUri = Uri.parse(baseURL + ApiConstants.LOGIN);
 
 ```
- 3.  Use ApiHelper class it contains plug and play REST callers.
+
+ -  Use ApiHelper class it contains plug and play REST callers
+ -  ApiHelper have 2 types of caller
+				 1. Plug and Play - This requires BuildContext and contains common loader and alert dialog built in.
+				 2. BG - This doesn't requires context can be called in Background but it doesn't contains UI elements everything will be handle by developer.
+ 
  ```dart
 Map map =  { "email": "eve.holt@reqres.in","password": "cityslicka" }
+// If showConnectivityError is set to false will Throw NoNetworkException in case of no nonnectivity.
+// showConnectivityError: false allows developer to handle no connectivity exception manually.
+
+//Plug and Play with common loader and dialog
 ResponseData responseData =  
     await ApiHelper().postRequest(context, _loginUri, map,  
           useAuth: false, showLoader: true, responseName: "Login",
-          showLog: true, showError: true); 
+          showLog: true, showError: true, showConnectivityError: true); 
+
+// Background callers without loader and dialog
+// Throws NoNetworkException in case of no nonnectivity.
+
+try {  
+  ResponseData responseData =  
+    await ApiHelper().postRequestBG(_loginUri,map,useAuth: false,showLog: true);
+} on NoNetworkException {  
+	  print("Please Check Internet Connection");  
+	  //Handle error on UI if using BG callers  
+}
 
 ```
 
 3.  Check response and consume.
  ```dart
 if (responseData.okAndContainsData ) {
-// Do success stuff here.
+	print(responseData.data['message'])
+	// Do success stuff here.
 }else if(responseData.statusCode == 500){
-// Handle 500.
+	// Handle 500.
 }else{
-// Handle everthing else.
+	// Handle everthing else.
 }
 
 ```

@@ -19,9 +19,14 @@ import 'package:http/http.dart' as http;
 ///              1. Error and Message Alert widget - can be left default, change as per UI design.
 ///              2. Header -  Change as per project spec.
 ///
+
+class NoNetworkException implements Exception {
+  String errMsg() => 'Please Check Internet Connection';
+}
+
 class ApiHelper {
   //Timeout in seconds
-  static const int DEFAULT_TIMEOUT = 45;
+  static const int _DEFAULT_TIMEOUT = 45;
 
   //Base headers Supports version
   //Gets Token from singleton class which is set either on login or app startup in main.dart
@@ -100,7 +105,7 @@ class ApiHelper {
       if (showLoader) LoaderWidget.showLoader(context);
       await http
           .post(requestUri, body: jsonBody, headers: await _getHeaders(useAuth, apiVersion))
-          .timeout(Duration(seconds: DEFAULT_TIMEOUT))
+          .timeout(Duration(seconds: _DEFAULT_TIMEOUT))
           .then((http.Response response) async {
         if (showLoader) LoaderWidget.hideLoader(context);
 
@@ -116,6 +121,8 @@ class ApiHelper {
         if (showLoader) LoaderWidget.hideLoader(context);
         debugPrint(error.toString());
       });
+    } else {
+      throw NoNetworkException;
     }
     return responseData;
   }
@@ -144,7 +151,7 @@ class ApiHelper {
 
       await http
           .put(requestUri, body: jsonBody, headers: await _getHeaders(useAuth, apiVersion))
-          .timeout(Duration(seconds: DEFAULT_TIMEOUT))
+          .timeout(Duration(seconds: _DEFAULT_TIMEOUT))
           .then((http.Response response) async {
         if (showLoader) LoaderWidget.hideLoader(context);
 
@@ -160,6 +167,8 @@ class ApiHelper {
         if (showLoader) LoaderWidget.hideLoader(context);
         debugPrint(error.toString());
       });
+    } else {
+      throw NoNetworkException;
     }
     return responseData;
   }
@@ -184,7 +193,7 @@ class ApiHelper {
 
       await http
           .patch(requestUri, body: jsonBody, headers: await _getHeaders(useAuth, apiVersion))
-          .timeout(Duration(seconds: DEFAULT_TIMEOUT))
+          .timeout(Duration(seconds: _DEFAULT_TIMEOUT))
           .then((http.Response response) async {
         if (showLoader) LoaderWidget.hideLoader(context);
 
@@ -200,6 +209,8 @@ class ApiHelper {
         if (showLoader) LoaderWidget.hideLoader(context);
         debugPrint(error.toString());
       });
+    } else {
+      throw NoNetworkException;
     }
     return responseData;
   }
@@ -223,7 +234,7 @@ class ApiHelper {
 
       await http
           .get(requestUri, headers: await _getHeaders(useAuth, apiVersion))
-          .timeout(Duration(seconds: DEFAULT_TIMEOUT))
+          .timeout(Duration(seconds: _DEFAULT_TIMEOUT))
           .then((http.Response response) async {
         if (showLoader) LoaderWidget.hideLoader(context);
 
@@ -239,6 +250,8 @@ class ApiHelper {
         if (showLoader) LoaderWidget.hideLoader(context);
         debugPrint(error.toString());
       });
+    } else {
+      throw NoNetworkException;
     }
     return responseData;
   }
@@ -261,7 +274,7 @@ class ApiHelper {
 
       await http
           .delete(requestUri, headers: await _getHeaders(useAuth, apiVersion))
-          .timeout(Duration(seconds: DEFAULT_TIMEOUT))
+          .timeout(Duration(seconds: _DEFAULT_TIMEOUT))
           .then((http.Response response) async {
         if (showLoader) LoaderWidget.hideLoader(context);
 
@@ -278,7 +291,74 @@ class ApiHelper {
         if (showLoader) LoaderWidget.hideLoader(context);
         debugPrint(error.toString());
       });
+    } else {
+      if (!showConnectivityError) throw NoNetworkException;
     }
     return responseData;
+  }
+
+  Future<ResponseData> getRequestBG(var requestUri,
+      {bool useAuth: true, String responseName: "", bool showLog: true, int apiVersion: 1}) async {
+    return await getRequest(null, requestUri,
+        showError: false,
+        showLog: showLog,
+        responseName: responseName,
+        showLoader: false,
+        useAuth: useAuth,
+        apiVersion: apiVersion,
+        showConnectivityError: false,
+        showMessage: false);
+  }
+
+  Future<ResponseData> postRequestBG(var requestUri, Map map,
+      {bool useAuth: true, String responseName: "", bool showLog: true, int apiVersion: 1}) async {
+    return await postRequest(null, requestUri, map,
+        showError: false,
+        showLog: showLog,
+        responseName: responseName,
+        showLoader: false,
+        useAuth: useAuth,
+        apiVersion: apiVersion,
+        showConnectivityError: false,
+        showMessage: false);
+  }
+
+  Future<ResponseData> putRequestBG(var requestUri, Map map,
+      {bool useAuth: true, String responseName: "", bool showLog: true, int apiVersion: 1}) async {
+    return await putRequest(null, requestUri, map,
+        showError: false,
+        showLog: showLog,
+        responseName: responseName,
+        showLoader: false,
+        useAuth: useAuth,
+        apiVersion: apiVersion,
+        showConnectivityError: false,
+        showMessage: false);
+  }
+
+  Future<ResponseData> patchRequestBG(var requestUri, Map map,
+      {bool useAuth: true, String responseName: "", bool showLog: true, int apiVersion: 1}) async {
+    return await patchRequest(null, requestUri, map,
+        showError: false,
+        showLog: showLog,
+        responseName: responseName,
+        showLoader: false,
+        useAuth: useAuth,
+        apiVersion: apiVersion,
+        showConnectivityError: false,
+        showMessage: false);
+  }
+
+  Future<ResponseData> deleteRequestBG(var requestUri,
+      {bool useAuth: true, String responseName: "", bool showLog: true, int apiVersion: 1}) async {
+    return await deleteRequest(null, requestUri,
+        showError: false,
+        showLog: showLog,
+        responseName: responseName,
+        showLoader: false,
+        useAuth: useAuth,
+        apiVersion: apiVersion,
+        showConnectivityError: false,
+        showMessage: false);
   }
 }
