@@ -1,7 +1,7 @@
 
 
 
-# Flutter MVVM Boiler Plate
+# Flutter MVVM Boilerplate
   
 Flutter Boiler Plate containing pre initialised services and following standardised protocol for code quality.
 
