@@ -4,7 +4,8 @@
 # Flutter MVVM Boiler Plate
   
 Flutter Boiler Plate containing pre initialised services and following standardised protocol for code quality.
-  
+
+Maintained by  - [Abhijeet Tripathi](https://github.com/abhimortal6)
 
 ##  Features
 
