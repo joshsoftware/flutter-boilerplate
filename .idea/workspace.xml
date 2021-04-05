@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="4a1edfd8-b58a-4b53-958a-c1f61ffa7532" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/android/app/src/main/java/flutter/mvvm/flutter_mvvm_boilerplate/MainActivity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/fonts/PlayfairDisplay-Regular.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/images/logos/Google_flutter_logo.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ios/Podfile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/models/custom_url_model.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/models/login_model.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/models/response_data_model.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/models/user_model.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/services/api_service.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/services/network_check.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/utils/api_helper.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/utils/constants/api_constants.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/utils/constants/app_constants.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/utils/constants/color_constants.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/utils/constants/font_family_constants.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/utils/constants/singleton_constant.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/utils/constants/size_constants.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/utils/navigation_helper.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/utils/pretty_json_print.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/utils/shared_preferences_helper.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/view_models/custom_url_view_model.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/view_models/login_view_model.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/views/custom_url_view.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/views/login_view.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/widgets/alert_bar.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/widgets/common_button.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/widgets/common_text_field.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/widgets/loader_widget.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.metadata" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/android/app/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/app/src/debug/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/android/app/src/debug/AndroidManifest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/android/app/src/main/AndroidManifest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/app/src/main/kotlin/com/tanzila/bloc_pattern_flutter_app/MainActivity.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/app/src/profile/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/android/app/src/profile/AndroidManifest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/android/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ios/Flutter/AppFrameworkInfo.plist" beforeDir="false" afterPath="$PROJECT_DIR$/ios/Flutter/AppFrameworkInfo.plist" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ios/Flutter/Debug.xcconfig" beforeDir="false" afterPath="$PROJECT_DIR$/ios/Flutter/Debug.xcconfig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ios/Flutter/Release.xcconfig" beforeDir="false" afterPath="$PROJECT_DIR$/ios/Flutter/Release.xcconfig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ios/Runner.xcodeproj/project.pbxproj" beforeDir="false" afterPath="$PROJECT_DIR$/ios/Runner.xcodeproj/project.pbxproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ios/Runner/Info.plist" beforeDir="false" afterPath="$PROJECT_DIR$/ios/Runner/Info.plist" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/api/album/album_api_provider.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/api/album/album_repository.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/api/exceptions.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/api/login/LoginApiProvider.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/api/login/LoginRepository.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/bloc/album/bloc.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/bloc/album/events.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/bloc/album/states.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/bloc/login/LoginBloc.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/main.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/models/albums_list.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/models/login_response.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/screens/albums_screen.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/screens/home_screen.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/screens/login_screen.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/utils/ApiConstant.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/utils/Constant.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/utils/page_transition.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/widgets/error.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/widgets/list_row.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/widgets/loading.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/widgets/roundedButton.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/widgets/txt.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pubspec.lock" beforeDir="false" afterPath="$PROJECT_DIR$/pubspec.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pubspec.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/widget_test.dart" beforeDir="false" afterPath="$PROJECT_DIR$/test/widget_test.dart" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="master" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="1qk1rsa9PGOJ9Ap1VzPiV0Hn8aJ" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="android.sdk.path" value="$USER_HOME$/Library/Android/sdk" />
+    <property name="dart.analysis.tool.window.visible" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="show.migrate.to.gradle.popup" value="false" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="main.dart" type="FlutterRunConfigurationType" factoryName="Flutter">
+      <option name="filePath" value="$PROJECT_DIR$/lib/main.dart" />
+      <method v="2" />
+    </configuration>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="4a1edfd8-b58a-4b53-958a-c1f61ffa7532" name="Default Changelist" comment="" />
+      <created>1617608975516</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1617608975516</updated>
+    </task>
+    <servers />
+  </component>
+</project>

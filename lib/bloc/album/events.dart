@@ -1,3 +1,0 @@
-enum AlbumEvents {
-  fetchAlbums,
-}
