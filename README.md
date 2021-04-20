@@ -1,15 +1,16 @@
 
 
 
+
 # Flutter MVVM Boilerplate
   
-Flutter Boiler Plate containing pre initialised services and following standardised protocol for code quality.
+Flutter Boilerplate containing pre initialised services and following standardised protocol for code quality.
 
 Maintained by  - [Abhijeet Tripathi](https://github.com/abhimortal6)
 
 ##  Features
 
-| Feature | Availability | |
+| Feature | Availability | 
 | - | - | -|
 | Ready to use | :white_check_mark: | 
 | MVVM based | :white_check_mark:|
@@ -197,7 +198,7 @@ Uri _loginUri = Uri.parse(baseURL + ApiConstants.LOGIN);
  - Use ApiHelper class it contains plug and play REST callers
  -  ApiHelper have 2 types of caller
 	 - Plug and Play  This requires BuildContext and contains common loader and alert dialog built in
-	 - BG : This doesn't requires context can be called in Background but it doesn't contains UI elements everything will be handle by developer
+	 - BG : This doesn't requires context can be called in Background but it doesn't contains UI elements everything will be handled by developer.
 
  
  ```dart
