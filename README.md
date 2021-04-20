@@ -11,7 +11,7 @@ Maintained by  - [Abhijeet Tripathi](https://github.com/abhimortal6)
 ##  Features
 
 | Feature | Availability | 
-| - | - | -|
+| - | - |
 | Ready to use | :white_check_mark: | 
 | MVVM based | :white_check_mark:|
 | Network services | :white_check_mark: |
